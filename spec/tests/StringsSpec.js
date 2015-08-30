@@ -22,17 +22,17 @@
 
 	describe("JSIntro-GetFirstNames", function(){
 
-		it("should return nothing", function(){
+		it("should return nothing1", function(){
 
 			var firstNames = JSIntro.GetFirstNames(null);
 			expect(firstNames).toEqual(null);
 		});
-		it("should return nothing", function(){
+		it("should return nothing2", function(){
 
 			var firstNames = JSIntro.GetFirstNames(";");
 			expect(firstNames.length).toEqual(0);
 		});
-		it("should return nothing", function(){
+		it("should return nothing3", function(){
 
 			var firstNames = JSIntro.GetFirstNames("");
 			expect(firstNames.length).toEqual(0);
