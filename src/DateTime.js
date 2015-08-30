@@ -12,6 +12,15 @@ NOTES: 		You can use built-in JS Classes such as Date class.
 
 */
 exports.GetDay = function(dateString){
-
+	if(dateString===null)
+		return NaN;
+	else
+		{
+			var d=new Date(dateString);
+			if(d.toString()==='Invalid Date')
+				return NaN;
+			else
+				return d.getDate();
+		}
 }
 

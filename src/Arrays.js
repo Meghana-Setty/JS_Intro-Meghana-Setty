@@ -12,7 +12,15 @@ ERROR CASES: If arrayOfNums is null, return NaN.
 			 You can use instanceof operator as described in the project page to check this.
 */
 exports.SumOfArray = function(arrayOfNums){
-
+	if(arrayOfNums instanceof Array)
+	{
+		var sum=0;
+		for(var i=0;i<arrayOfNums.length;i++)
+			sum+=arrayOfNums[i];
+		return sum;
+	}	
+	else
+	return NaN;
 
 }
 
@@ -31,7 +39,16 @@ ERROR CASES: If arrayOfNums is null, return NaN.
 */
 
 exports.SumOfUniqueNumbers = function(arrayOfNums){
-
+		if(arrayOfNums instanceof Array)
+		{
+			var uniquearr=[];
+			for(var i=0;i<arrayOfNums.length;i++)
+				if(uniquearr.indexOf(arrayOfNums[i])==-1)
+					uniquearr.push(arrayOfNums[i]);
+			return exports.SumOfArray(uniquearr);
+		}
+		else
+			return NaN;
 
 }
 
@@ -51,6 +68,27 @@ ERROR CASES: If array2d is null, return NaN.
 */
 
 exports.SumOfDiagonalCells = function(array2d){
-
+	if (array2d instanceof Array)
+	{
+		var num=0,sum=0;
+		for(var i=0;i<array2d.length;i++)
+		{
+			if(array2d[i] instanceof Array && array2d[i].length==array2d.length)
+			{
+				if(typeof(array2d[num][num])==='number')
+					{
+						sum+=array2d[num][num];
+						num++;
+					}
+				else
+					return NaN;
+			}
+			else
+				return NaN;
+		}
+		return sum;
+	}
+	else
+	return NaN;
 
 }
