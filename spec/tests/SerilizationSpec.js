@@ -62,13 +62,13 @@
 
 	describe("JSIntro-ParseStringOfNumbers", function(){
 
-		it("should return empty array", function(){
+		it("should return empty array1", function(){
 
 			var arr = JSIntro.ParseStringOfNumbers("");
 			expect(arr.length).toEqual(0);
 		});
 
-		it("should return empty array", function(){
+		it("should return empty array2", function(){
 
 			var arr = JSIntro.ParseStringOfNumbers(100);
 			expect(arr.length).toEqual(0);

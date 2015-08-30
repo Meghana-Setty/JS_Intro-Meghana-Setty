@@ -43,10 +43,7 @@ exports.GetObjectPropertyValues = function(obj) {
 		for(var property in obj)
 			{
 				properties.push(obj[property]);
-				console.log(property);
-				console.log(obj[property]);
 			}
-		console.log(properties);
 		return properties;
 	}
 

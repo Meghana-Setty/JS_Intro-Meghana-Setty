@@ -11,7 +11,10 @@ ERROR CASES: Return NaN if str is null or if it does not represent a number.
 NOTES: You can use built-in JS Functions to implement your solution.
 */
 exports.ParseNumber = function(str){
-
+	if(str==null || str=="")
+		return NaN;
+	else
+		return Number(str);
 
 }
 
@@ -29,7 +32,10 @@ NOTES: You can use built-in JS Functions to implement your solution.
 */
 exports.ConvertNumberToString = function(num){
 
-
+		if(num==null || typeof(num)!="number")
+			return "";
+		else
+			return num.toString();
 }
 
 
@@ -48,7 +54,16 @@ NOTES: You can use built-in JS Functions to implement your solution.
 */
 
 exports.ParseDate = function(str){
-
+		if(str==null)
+			return null;
+		else
+		{
+			var d=new Date(str);
+			if(d.toString()=="Invalid Date")
+				return null;
+			else
+				return d;
+		}
 
 
 }
@@ -68,6 +83,23 @@ NOTES: You can use built-in JS Functions to implement your solution.
 */
 
 exports.ConvertDateToString = function(dateValue){
+	var months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
+	var days=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+	if(dateValue instanceof Date)
+	{
+		var dat=days[dateValue.getDay()]+" "+months[dateValue.getMonth()]+" "
+		if(dateValue.getDate()<10)
+			dat=dat+"0"+dateValue.getDate();
+		else
+			dat=dat+dateValue.getDate();
+		return dat+" "+dateValue.getFullYear();
+	}
+	else
+	{
+		return "";
+	}
+
 
 }
 
@@ -87,6 +119,19 @@ NOTES: You can use built-in JS Functions to implement your solution.
 */
 
 exports.ParseStringOfNumbers = function(str){
+	if(str==null || typeof(str)!="string" || str=="")
+		return [];
+	else
+	{
+		var arr=str.split(",");
+		for(var i=0;i<arr.length;i++)
+		{
+			arr[i]=Number(arr[i]);
+			
+		}
+		return arr;
+
+	}
 }
 
 /*
@@ -104,7 +149,10 @@ NOTES: You can use built-in JS Functions to implement your solution.
 */
 
 exports.ConvertArrayOfNumbersToString = function(obj){
-
+		if(obj instanceof Array)
+			return obj.join(",");
+		else
+			return "";
 
 }
 
@@ -126,6 +174,20 @@ NOTES: 		1) You can use built-in JS Functions to implement your solution.
 */
 
 exports.ConvertStringToObject = function(str){
+	if(str==null)
+		return null;
+	else
+	{
+		try
+		{
+			var obj=JSON.parse(str);
+			return obj;
+		}
+		catch(err)
+		{
+			return null;
+		}
+	}
 
 }
 
@@ -144,7 +206,10 @@ NOTES: 		You can use built-in JS Functions to implement your solution.
 */
 
 exports.ConvertObjectToString = function(obj){
-
+		if(obj==null)
+			return null;
+		else
+			return JSON.stringify(obj);
 
 }
 
