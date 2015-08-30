@@ -11,8 +11,15 @@ OUTPUT: 	array containing the property names of obj.
 ERROR CASES: return null if obj is null or is not a Javascript object.
 */
 exports.GetObjectPropertyNames = function(obj) {
-
-
+	if(obj==null || typeof(obj)!='object' )
+		return null;
+	else
+	{
+		properties=[];
+		for(var property in obj)
+			properties.push(property);
+		return properties;
+	}
 }
 
 /*
@@ -28,7 +35,20 @@ OUTPUT: 	array containing the property names of obj.
 ERROR CASES: return null if obj is null or is not a Javascript object.
 */
 exports.GetObjectPropertyValues = function(obj) {
-
+	if(obj==null || typeof(obj)!='object' )
+		return null;
+	else
+	{
+		properties=[];
+		for(var property in obj)
+			{
+				properties.push(obj[property]);
+				console.log(property);
+				console.log(obj[property]);
+			}
+		console.log(properties);
+		return properties;
+	}
 
 }
 
